@@ -13,6 +13,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * Jersey resource for User URI
+ *
  * Created by biogerm on 15/10/13.
  */
 @Path("/user")
@@ -24,18 +26,37 @@ public class UserResource {
         this.userDAO = userDAO;
     }
 
+    /**
+     * Create a new User with User Entity
+     *
+     * @param user to be created
+     * @return created User
+     */
     @POST
     @UnitOfWork
     public User createUser(User user) {
         return userDAO.create(user);
     }
 
+    /**
+     * Get User Entity with authentication
+     *
+     * @param user to be queried
+     * @return fetched User
+     */
     @GET
     @UnitOfWork
     public User get(@Auth User user) {
         return userDAO.getUser(user.getUsername());
     }
 
+    /**
+     * Update user with new login time
+     *
+     * @param authUser User who will perform update
+     * @param username User who will be updated
+     * @return updated User
+     */
     @PUT
     @Path("{username}")
     @UnitOfWork
@@ -71,5 +92,4 @@ public class UserResource {
         user.setLogin5(dates[4]);
         return userDAO.updateLoginTimestamp(user);
     }
-
 }

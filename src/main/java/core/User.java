@@ -8,6 +8,8 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
+ * User Entity includes username, password and 5 login dates
+ *
  * Created by biogerm on 15/10/11.
  */
 @Entity
@@ -71,7 +73,6 @@ public class User {
         return this.username;
     }
 
-//    @JsonIgnore
     public String getPassword() {
         return password;
     }

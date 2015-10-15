@@ -8,6 +8,9 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 /**
+ * Hibernate DB configuration
+ * DB is hosted on RDS
+ *
  * Created by biogerm on 15/10/12.
  */
 public class DbConfiguration extends Configuration {

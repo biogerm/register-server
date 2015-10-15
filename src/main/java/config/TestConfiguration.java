@@ -5,6 +5,8 @@ import io.dropwizard.Configuration;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
+ * Not used :) pls ignore this file
+ *
  * Created by biogerm on 15/9/24.
  */
 public class TestConfiguration extends Configuration{

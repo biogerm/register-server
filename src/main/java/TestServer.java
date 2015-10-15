@@ -13,6 +13,8 @@ import resources.TestResource;
 import resources.UserResource;
 
 /**
+ * Register Server web application
+ *
  * Created by biogerm on 15/9/24.
  */
 public class TestServer extends Application<DbConfiguration> {
@@ -20,7 +22,7 @@ public class TestServer extends Application<DbConfiguration> {
         new TestServer().run(args);
     }
 
-    private final TestResource resource = new TestResource();
+    private final TestResource resource = new TestResource(); // "hello world" test
     private final HibernateBundle<DbConfiguration> hibernate = new HibernateBundle<DbConfiguration>(User.class) {
         @Override
         public DataSourceFactory getDataSourceFactory(DbConfiguration dbConfiguration) {
@@ -37,7 +39,7 @@ public class TestServer extends Application<DbConfiguration> {
     public void run(DbConfiguration configuration, Environment environment) throws Exception {
         final UserDAO dao = new UserDAO(hibernate.getSessionFactory());
         environment.jersey().register(new UserResource(dao));
-        environment.jersey().register(resource);
+        environment.jersey().register(resource); // for "hello, world" test
         environment.jersey().register(
                 AuthFactory.binder(
                         new BasicAuthFactory<>(

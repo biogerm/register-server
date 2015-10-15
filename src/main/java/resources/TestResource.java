@@ -8,6 +8,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 /**
+ * This was the "hello, world" application for testing purpose
+ *
  * Created by biogerm on 15/9/24.
  */
 @Path("/")
